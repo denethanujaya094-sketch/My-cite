@@ -7,6 +7,30 @@
     <!-- Tailwind CSS for Modern UI -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Live Floating & Button CSS Animations -->
+    <style>
+        @keyframes float-1 {
+            0%, 100% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(40px, 60px) scale(1.2); }
+        }
+        @keyframes float-2 {
+            0%, 100% { transform: translate(0px, 0px) scale(1.2); }
+            50% { transform: translate(-50px, -40px) scale(0.9); }
+        }
+        @keyframes float-3 {
+            0%, 100% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(-30px, 40px) scale(1.1); }
+        }
+        /* බටන් එක ඇතුළේ ඊතලය පල්ලෙහාට පනින ඉෆෙක්ට් එක */
+        @keyframes arrow-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(4px); }
+        }
+        .group:hover .animate-arrow {
+            animation: arrow-bounce 0.8s infinite ease-in-out;
+        }
+    </style>
 </head>
 <body class="bg-[#050811] text-slate-200 font-sans antialiased min-h-screen flex flex-col justify-between relative overflow-x-hidden select-none">
 
@@ -35,8 +59,8 @@
         <main class="max-w-3xl w-full mx-auto px-6 py-10 flex-grow">
             <div class="space-y-5">
 
-                <!-- FILE CARD 1 -->
-                <div class="bg-[#0b111e]/80 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 hover:border-blue-500/40 hover:shadow-xl hover:shadow-blue-500/5 group">
+                <!-- FILE CARD 1 (Blue Glow Button) -->
+                <div class="bg-[#0b111e]/80 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 hover:border-blue-500/30 hover:shadow-xl hover:shadow-blue-500/5 group">
                     <div class="flex items-center gap-4">
                         <div class="h-12 w-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-xl border border-blue-500/20 group-hover:bg-blue-500/20 transition-all">
                             <i class="fa-solid fa-cloud-moon"></i>
@@ -46,13 +70,14 @@
                             <p class="text-slate-400 text-xs mt-0.5">Size: 12.5 MB &bull; Type: Android App</p>
                         </div>
                     </div>
-                    <a href="https://google.com" target="_blank" class="w-full sm:w-auto text-center bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-sm font-semibold px-6 py-2.5 rounded-xl transition duration-200 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/20 hover:scale-[1.02]">
-                        <i class="fa-solid fa-arrow-down"></i> Download
+                    <!-- Glow & Pulse Button -->
+                    <a href="https://google.com" target="_blank" class="w-full sm:w-auto text-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm font-semibold px-6 py-2.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/20 hover:from-blue-500 hover:to-indigo-500 hover:scale-[1.05] hover:shadow-[0_0_20px_rgba(59,130,246,0.6)]">
+                        <i class="fa-solid fa-arrow-down animate-arrow"></i> Download
                     </a>
                 </div>
 
-                <!-- FILE CARD 2 -->
-                <div class="bg-[#0b111e]/80 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 hover:border-purple-500/40 hover:shadow-xl hover:shadow-purple-500/5 group">
+                <!-- FILE CARD 2 (Purple Glow Button) -->
+                <div class="bg-[#0b111e]/80 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 hover:border-purple-500/30 hover:shadow-xl hover:shadow-purple-500/5 group">
                     <div class="flex items-center gap-4">
                         <div class="h-12 w-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 text-xl border border-purple-500/20 group-hover:bg-purple-500/20 transition-all">
                             <i class="fa-solid fa-robot"></i>
@@ -62,12 +87,13 @@
                             <p class="text-slate-400 text-xs mt-0.5">Size: 45.0 MB &bull; Type: MP4 Video Guide</p>
                         </div>
                     </div>
-                    <a href="https://google.com" target="_blank" class="w-full sm:w-auto text-center bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-sm font-semibold px-6 py-2.5 rounded-xl transition duration-200 flex items-center justify-center gap-2 shadow-lg shadow-purple-600/20 hover:scale-[1.02]">
-                        <i class="fa-solid fa-play"></i> Watch / Download
+                    <!-- Glow & Pulse Button -->
+                    <a href="https://google.com" target="_blank" class="w-full sm:w-auto text-center bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-sm font-semibold px-6 py-2.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-purple-600/20 hover:from-purple-500 hover:to-indigo-500 hover:scale-[1.05] hover:shadow-[0_0_20px_rgba(168,85,247,0.6)]">
+                        <i class="fa-solid fa-play group-hover:scale-125 transition-transform"></i> Watch / Download
                     </a>
                 </div>
 
-                <!-- FILE CARD 3 -->
+                <!-- FILE CARD 3 (Emerald Glow Button) -->
                 <div class="bg-[#0b111e]/80 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 hover:border-emerald-500/40 hover:shadow-xl hover:shadow-emerald-500/5 group">
                     <div class="flex items-center gap-4">
                         <div class="h-12 w-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 text-xl border border-emerald-500/20 group-hover:bg-emerald-500/20 transition-all">
@@ -78,8 +104,9 @@
                             <p class="text-slate-400 text-xs mt-0.5">Size: 68.2 MB &bull; Type: Android APK</p>
                         </div>
                     </div>
-                    <a href="https://google.com" target="_blank" class="w-full sm:w-auto text-center bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-sm font-semibold px-6 py-2.5 rounded-xl transition duration-200 flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20 hover:scale-[1.02]">
-                        <i class="fa-solid fa-arrow-down"></i> Download APK
+                    <!-- Glow & Pulse Button -->
+                    <a href="https://google.com" target="_blank" class="w-full sm:w-auto text-center bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-sm font-semibold px-6 py-2.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20 hover:from-emerald-500 hover:to-teal-500 hover:scale-[1.05] hover:shadow-[0_0_20px_rgba(16,185,129,0.6)]">
+                        <i class="fa-solid fa-arrow-down animate-arrow"></i> Download APK
                     </a>
                 </div>
 
@@ -98,9 +125,8 @@
         const ctx = canvas.getContext('2d');
 
         let particlesArray = [];
-        const numberOfParticles = 40; // ලයිට් බෝල ගණන
+        const numberOfParticles = 40;
 
-        // Set canvas size to screen size
         function setCanvasSize() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
@@ -108,27 +134,25 @@
         setCanvasSize();
         window.addEventListener('resize', setCanvasSize);
 
-        // Particle Object
         class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height + canvas.height; // පල්ලෙහායින් පටන් ගන්නවා
-                this.size = Math.random() * 3 + 1; // බෝල වල සයිස් එක
-                this.speedY = Math.random() * 0.6 + 0.2; // උඩට යන වේගය
-                this.speedX = Math.random() * 0.4 - 0.2; // දෙපැත්තට පැද්දෙන වේගය
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedY = Math.random() * 0.6 + 0.2;
+                this.speedX = Math.random() * 0.4 - 0.2;
                 this.opacity = Math.random() * 0.5 + 0.2;
             }
             update() {
                 this.y -= this.speedY;
                 this.x += this.speedX;
-                // උඩටම ගියාම ආයේ පල්ලෙහාට දානවා
                 if (this.y < 0) {
                     this.y = canvas.height;
                     this.x = Math.random() * canvas.width;
                 }
             }
             draw() {
-                ctx.fillStyle = `rgba(147, 197, 253, ${this.opacity})`; // ලස්සන ලා නිල් පාටක්
+                ctx.fillStyle = `rgba(147, 197, 253, ${this.opacity})`;
                 ctx.shadowBlur = 10;
                 ctx.shadowColor = '#3b82f6';
                 ctx.beginPath();
@@ -137,18 +161,15 @@
             }
         }
 
-        // Initialize particles
         function init() {
             particlesArray = [];
             for (let i = 0; i < numberOfParticles; i++) {
                 particlesArray.push(new Particle());
-                // මුලින්ම මුළු screen එකේම බෙදිලා තියෙන්න හදනවා
                 particlesArray[i].y = Math.random() * canvas.height;
             }
         }
         init();
 
-        // Loop animation
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             for (let i = 0; i < particlesArray.length; i++) {
@@ -160,4 +181,4 @@
         animate();
     </script>
 </body>
-                        </html>
+    </html>
