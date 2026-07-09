@@ -7,37 +7,15 @@
     <!-- Tailwind CSS for Modern UI -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- 100% Working Pure CSS Animation -->
-    <style>
-        @keyframes float-1 {
-            0%, 100% { transform: translate(0px, 0px) scale(1); }
-            50% { transform: translate(40px, 60px) scale(1.2); }
-        }
-        @keyframes float-2 {
-            0%, 100% { transform: translate(0px, 0px) scale(1.2); }
-            50% { transform: translate(-50px, -40px) scale(0.9); }
-        }
-        @keyframes float-3 {
-            0%, 100% { transform: translate(0px, 0px) scale(1); }
-            50% { transform: translate(-30px, 40px) scale(1.1); }
-        }
-    </style>
 </head>
-<body class="bg-[#060a13] text-slate-200 font-sans antialiased min-h-screen flex flex-col justify-between relative overflow-x-hidden select-none">
+<body class="bg-[#050811] text-slate-200 font-sans antialiased min-h-screen flex flex-col justify-between relative overflow-x-hidden select-none">
 
-    <!-- Hexagon/Grid Design Effect -->
-    <div class="absolute inset-0 bg-[radial-gradient(#ffffff03_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none z-0"></div>
+    <!-- Canvas for Floating Live Lights -->
+    <canvas id="particleCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
 
-    <!-- Live Floating Glowing Lights (Forced Inline Animation) -->
-    <div class="absolute top-[-5%] left-[-10%] w-[450px] h-[450px] bg-blue-500/15 rounded-full blur-[100px] pointer-events-none z-0" 
-         style="animation: float-1 10s infinite ease-in-out;"></div>
-    
-    <div class="absolute top-[25%] right-[-10%] w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-[120px] pointer-events-none z-0" 
-         style="animation: float-2 12s infinite ease-in-out;"></div>
-    
-    <div class="absolute bottom-[10%] left-[5%] w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-[110px] pointer-events-none z-0" 
-         style="animation: float-3 14s infinite ease-in-out;"></div>
+    <!-- Static Background Glows -->
+    <div class="absolute top-[-10%] left-[-10%] w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none z-0"></div>
+    <div class="absolute bottom-[10%] right-[-10%] w-[450px] h-[450px] bg-purple-500/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
     <div class="relative z-10 flex flex-col justify-between min-h-screen w-full">
         <!-- Header Section -->
@@ -58,7 +36,7 @@
             <div class="space-y-5">
 
                 <!-- FILE CARD 1 -->
-                <div class="bg-[#0e1525]/70 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 hover:border-blue-500/40 hover:shadow-xl hover:shadow-blue-500/5 group">
+                <div class="bg-[#0b111e]/80 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 hover:border-blue-500/40 hover:shadow-xl hover:shadow-blue-500/5 group">
                     <div class="flex items-center gap-4">
                         <div class="h-12 w-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-xl border border-blue-500/20 group-hover:bg-blue-500/20 transition-all">
                             <i class="fa-solid fa-cloud-moon"></i>
@@ -74,7 +52,7 @@
                 </div>
 
                 <!-- FILE CARD 2 -->
-                <div class="bg-[#0e1525]/70 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 hover:border-purple-500/40 hover:shadow-xl hover:shadow-purple-500/5 group">
+                <div class="bg-[#0b111e]/80 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 hover:border-purple-500/40 hover:shadow-xl hover:shadow-purple-500/5 group">
                     <div class="flex items-center gap-4">
                         <div class="h-12 w-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 text-xl border border-purple-500/20 group-hover:bg-purple-500/20 transition-all">
                             <i class="fa-solid fa-robot"></i>
@@ -90,7 +68,7 @@
                 </div>
 
                 <!-- FILE CARD 3 -->
-                <div class="bg-[#0e1525]/70 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 hover:border-emerald-500/40 hover:shadow-xl hover:shadow-emerald-500/5 group">
+                <div class="bg-[#0b111e]/80 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 hover:border-emerald-500/40 hover:shadow-xl hover:shadow-emerald-500/5 group">
                     <div class="flex items-center gap-4">
                         <div class="h-12 w-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 text-xl border border-emerald-500/20 group-hover:bg-emerald-500/20 transition-all">
                             <i class="fa-solid fa-mobile-screen-button"></i>
@@ -114,5 +92,72 @@
         </footer>
     </div>
 
+    <!-- JavaScript for Floating Light Particles -->
+    <script>
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let particlesArray = [];
+        const numberOfParticles = 40; // ලයිට් බෝල ගණන
+
+        // Set canvas size to screen size
+        function setCanvasSize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        setCanvasSize();
+        window.addEventListener('resize', setCanvasSize);
+
+        // Particle Object
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height + canvas.height; // පල්ලෙහායින් පටන් ගන්නවා
+                this.size = Math.random() * 3 + 1; // බෝල වල සයිස් එක
+                this.speedY = Math.random() * 0.6 + 0.2; // උඩට යන වේගය
+                this.speedX = Math.random() * 0.4 - 0.2; // දෙපැත්තට පැද්දෙන වේගය
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+            update() {
+                this.y -= this.speedY;
+                this.x += this.speedX;
+                // උඩටම ගියාම ආයේ පල්ලෙහාට දානවා
+                if (this.y < 0) {
+                    this.y = canvas.height;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+            draw() {
+                ctx.fillStyle = `rgba(147, 197, 253, ${this.opacity})`; // ලස්සන ලා නිල් පාටක්
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = '#3b82f6';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        // Initialize particles
+        function init() {
+            particlesArray = [];
+            for (let i = 0; i < numberOfParticles; i++) {
+                particlesArray.push(new Particle());
+                // මුලින්ම මුළු screen එකේම බෙදිලා තියෙන්න හදනවා
+                particlesArray[i].y = Math.random() * canvas.height;
+            }
+        }
+        init();
+
+        // Loop animation
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+            }
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
 </body>
                         </html>
