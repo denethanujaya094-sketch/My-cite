@@ -112,24 +112,41 @@
                         <i class="fa-solid fa-arrow-down animate-arrow"></i> Download APK
                     </a>
                 </div>
-                <!-- NEW PAID FILE CARD -->
+                <!-- PASSWORD PROTECTED PAID FILE CARD -->
                 <div class="bg-[#0b111e]/80 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 hover:border-amber-500/40 hover:shadow-xl hover:shadow-amber-500/5 group">
                     <div class="flex items-center gap-4">
-                        <!-- මෙතන තියෙන්නේ ලස්සන රන්වන් පාට Icon එකක් -->
                         <div class="h-12 w-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 text-xl border border-amber-500/20 group-hover:bg-amber-500/20 transition-all">
                             <i class="fa-solid fa-gem"></i>
                         </div>
                         <div>
                             <h3 class="font-bold text-slate-100 text-base md:text-lg tracking-wide group-hover:text-amber-400 transition-colors">
-                                <!-- මෙතනට ඇප් එකේ නම දාපං -->
-                                caming soon
-                                <!-- මෙන්න PAID ටැග් එක ඔටෝම වැටෙනවා -->
+                                MUVIZ EDGE PREMIUM APK
                                 <span class="inline-flex items-center bg-amber-500/10 text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded-md border border-amber-500/20 uppercase tracking-wide ml-2 shadow-sm shadow-amber-500/5">Paid</span>
                             </h3>
-                            <!-- මෙතනට ෆයිල් විස්තර දාපං -->
                             <p class="text-slate-400 text-xs mt-0.5">Size: 4.5 MB &bull; Type: Android APK</p>
                         </div>
                     </div>
+                    <!-- මෙන්න බටන් එක. මේකට JavaScript Function එකක් කනෙක්ට් කරලා තියෙන්නේ -->
+                    <button onclick="checkPassword('https://your-mediafire-link-here.com')" class="w-full sm:w-auto text-center bg-gradient-to-r from-amber-600 to-orange-600 text-white text-sm font-semibold px-6 py-2.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-amber-600/20 hover:from-amber-500 hover:to-orange-500 hover:scale-[1.05] hover:shadow-[0_0_20px_rgba(245,158,11,0.6)] cursor-pointer">
+                        <i class="fa-solid fa-lock mr-1"></i> Unlock Download
+                    </button>
+                </div>
+                    
+                        
+                        
+                            
+                        
+                        
+                            
+                                
+                                
+                                
+                                
+                            
+                            
+                            
+                        
+                    
                     <!-- මෙන්න රන්වන් පාටින් දිලිසෙන Neon Download Button එක -->
                     <a href="https://google.com" target="_blank" class="w-full sm:w-auto text-center bg-gradient-to-r from-amber-600 to-orange-600 text-white text-sm font-semibold px-6 py-2.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-amber-600/20 hover:from-amber-500 hover:to-orange-500 hover:scale-[1.05] hover:shadow-[0_0_20px_rgba(245,158,11,0.6)]">
                         <i class="fa-solid fa-arrow-down animate-arrow"></i> Download
@@ -250,6 +267,26 @@
             requestAnimationFrame(animate);
         }
         animate();
+        // ඩවුන්ලෝඩ් කරන්න කලින් පාස්වර්ඩ් එක චෙක් කරන ෆන්ෂන් එක
+        function checkPassword(downloadUrl) {
+            // උඹට කැමති පාස්වර්ඩ් එකක් මෙතන 'deneth123' වෙනුවට දාන්න
+            const correctPassword = "deneth123"; 
+            
+            // Screen එකේ පොප්-අප් බොක්ස් එකක් පෙන්වනවා
+            let userPassword = prompt("Please enter the Premium Password to unlock this file:");
+            
+            if (userPassword === null) {
+                // Cancel කළොත් මුකුත් වෙන්නේ නෑ
+                return;
+            }
+            
+            if (userPassword === correctPassword) {
+                alert("Password Correct! Your download will open now.");
+                window.open(downloadUrl, '_blank'); // නිවැරදි නම් ලින්ක් එක ඕපන් වෙනවා
+            } else {
+                alert("Wrong Password! Access Denied."); // වැරදි නම් බ්ලොක් වෙනවා
+            }
+        }
     </script>
 </body>
     </html>
