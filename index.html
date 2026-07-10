@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deneth Download Center</title>
-    <!-- Stable Tailwind CSS CDN (v3.4) -->
+    <!-- 100% Stable Tailwind CSS v3 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -227,7 +227,7 @@
                 }
             }
             draw() {
-                ctx.fillStyle = `rgba(147, 197, 253, ${this.opacity})`;
+                ctx.fillStyle = "rgba(147, 197, 253, " + this.opacity + ")";
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
@@ -259,10 +259,10 @@
             
             for (let i = 0; i < cards.length; i++) {
                 let title = cards[i].getAttribute('data-title');
-                if (title.toLowerCase().includes(input)) {
-                    cards[i].style.setProperty('display', 'flex', 'important');
+                if (title.toLowerCase().indexOf(input) > -1) {
+                    cards[i].style.display = "flex";
                 } else {
-                    cards[i].style.setProperty('display', 'none', 'important');
+                    cards[i].style.display = "none";
                 }
             }
         }
@@ -272,17 +272,17 @@
             let cards = document.getElementsByClassName('file-card');
             let tabs = document.getElementsByClassName('tab-btn');
             
-            for(let tab of tabs) {
-                tab.className = "tab-btn bg-[#0b111e]/60 border border-slate-800 text-slate-400 text-xs font-semibold px-4 py-2 rounded-lg hover:text-slate-200 cursor-pointer";
+            for(let i=0; i<tabs.length; i++) {
+                tabs[i].className = "tab-btn bg-[#0b111e]/60 border border-slate-800 text-slate-400 text-xs font-semibold px-4 py-2 rounded-lg hover:text-slate-200 cursor-pointer";
             }
             document.getElementById('tab-' + category).className = "tab-btn bg-blue-600 text-white text-xs font-semibold px-4 py-2 rounded-lg cursor-pointer";
 
             for (let i = 0; i < cards.length; i++) {
                 let cardCat = cards[i].getAttribute('data-category');
                 if (category === 'all' || cardCat === category) {
-                    cards[i].style.setProperty('display', 'flex', 'important');
+                    cards[i].style.display = "flex";
                 } else {
-                    cards[i].style.setProperty('display', 'none', 'important');
+                    cards[i].style.display = "none";
                 }
             }
         }
@@ -303,12 +303,12 @@
         }
 
         // 5. Toast Notification Popup
-        window.addEventListener('load', () => {
-            setTimeout(() => {
+        window.addEventListener('load', function() {
+            setTimeout(function() {
                 const toast = document.getElementById('notificationToast');
                 if(toast) {
                     toast.style.display = 'flex';
-                    setTimeout(() => {
+                    setTimeout(function() {
                         toast.style.opacity = '0';
                         toast.style.transition = 'opacity 0.5s ease';
                     }, 5000);
@@ -317,4 +317,4 @@
         });
     </script>
 </body>
-                                </html>
+    </html>
