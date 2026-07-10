@@ -315,6 +315,19 @@
                 }
             }, 1000);
         });
+        function searchFiles() {
+    let input = document.getElementById('searchInput').value.toLowerCase();
+    let cards = document.getElementsByClassName('file-card');
+    
+    for (let i = 0; i < cards.length; i++) {
+        let title = cards[i].getAttribute('data-title');
+        if (title && title.toLowerCase().indexOf(input) > -1) {
+            cards[i].style.setProperty('display', 'flex', 'important');
+        } else {
+            cards[i].style.setProperty('display', 'none', 'important');
+        }
+    }
+        }
     </script>
 </body>
                     </html>
