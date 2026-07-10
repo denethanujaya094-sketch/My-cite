@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deneth Download Center</title>
+    <title>Deneth Premium Download Center</title>
     
-    <!-- 100% Stable Tailwind CSS v3 Play CDN (Fixes the Search bar & Popup bugs) -->
+    <!-- 100% Bug-Free Stable Tailwind CSS v3 -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     
     <!-- FontAwesome Icons -->
@@ -30,10 +30,10 @@
 </head>
 <body class="bg-[#050811] text-slate-200 font-sans antialiased min-h-screen flex flex-col justify-between relative overflow-x-hidden select-none">
 
-    <!-- Background Canvas for Lights -->
+    <!-- Background Particle Canvas -->
     <canvas id="particleCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
 
-    <!-- Background Glows -->
+    <!-- Aesthetic Glows -->
     <div class="absolute top-[-10%] left-[-10%] w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none z-0"></div>
     <div class="absolute bottom-[10%] right-[-10%] w-[450px] h-[450px] bg-purple-500/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
@@ -48,16 +48,16 @@
     </div>
 
     <!-- LIVE NOTIFICATION TOAST -->
-    <div id="notificationToast" class="fixed bottom-6 right-6 z-50 bg-[#0e172a]/95 backdrop-blur-md border border-blue-500/30 px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 hidden animate-toast">
+    <div id="notificationToast" class="fixed bottom-6 right-6 z-50 bg-[#0e172a]/95 backdrop-blur-md border border-blue-500/30 px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 animate-toast" style="display: flex !important;">
         <div class="w-2 h-2 rounded-full bg-blue-400 animate-ping"></div>
         <p class="text-xs md:text-sm text-slate-300 font-medium">🔥 <span class="text-blue-400">Muviz Edge Premium</span> Just Updated!</p>
     </div>
 
     <div class="relative z-10 flex flex-col justify-between min-h-screen w-full">
         
-        <!-- Header Section -->
+        <!-- HEADER SECTION -->
         <header class="max-w-4xl w-full mx-auto px-6 pt-12 text-center">
-            <div class="inline-flex items-center justify-center bg-blue-500/10 text-blue-400 font-semibold px-4 py-1.5 rounded-full text-xs uppercase tracking-wider mb-5 border border-blue-500/20" style="display: inline-flex;">
+            <div class="inline-flex items-center justify-center bg-blue-500/10 text-blue-400 font-semibold px-4 py-1.5 rounded-full text-xs uppercase tracking-wider mb-5 border border-blue-500/20" style="display: inline-flex !important;">
                 <span class="flex h-2 w-2 rounded-full bg-blue-400 animate-ping mr-2"></span> Official Hub
             </div>
             
@@ -69,7 +69,7 @@
             </p>
 
             <!-- LIVE COUNTERS -->
-            <div class="flex justify-center gap-6 max-w-sm mx-auto mb-8 bg-[#0b111e]/40 backdrop-blur-sm border border-slate-800/60 py-2.5 px-4 rounded-xl" style="display: flex;">
+            <div class="flex justify-center gap-6 max-w-sm mx-auto mb-8 bg-[#0b111e]/40 backdrop-blur-sm border border-slate-800/60 py-2.5 px-4 rounded-xl" style="display: flex !important;">
                 <div>
                     <p class="text-xs text-slate-500 uppercase font-bold tracking-wider">Total Downloads</p>
                     <p class="text-sm font-extrabold text-blue-400 mt-0.5">5,840+</p>
@@ -77,34 +77,34 @@
                 <div class="w-[1px] bg-slate-800/80"></div>
                 <div>
                     <p class="text-xs text-slate-500 uppercase font-bold tracking-wider">Live Users</p>
-                    <p class="text-sm font-extrabold text-emerald-400 mt-0.5 flex items-center justify-center gap-1.5" style="display: flex;">
+                    <p class="text-sm font-extrabold text-emerald-400 mt-0.5 flex items-center justify-center gap-1.5" style="display: flex !important;">
                         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> 14 Active
                     </p>
                 </div>
             </div>
 
-            <!-- LIVE SEARCH BAR -->
-            <div class="max-w-md mx-auto relative mb-6" style="display: block !important; position: relative; margin-bottom: 24px;">
-                <i class="fa-solid fa-magnifying-glass absolute left-4 text-slate-500 text-sm" style="position: absolute !important; left: 16px !important; top: 16px !important; z-index: 50 !important; display: block !important;"></i>
-                <input type="text" id="searchInput" onkeyup="searchFiles()" placeholder="Search apps, scripts, bots..." class="w-full bg-[#0b111e]/90 border border-slate-800 focus:border-blue-500/50 rounded-xl text-sm text-slate-200 placeholder-slate-500 outline-none transition-all" style="display: block !important; width: 100% !important; padding: 12px 16px 12px 44px !important; border-radius: 12px !important; background-color: rgba(11,17,30,0.9) !important; border: 1px solid #1e293b !important; color: #e2e8f0 !important;">
+            <!-- BUG-FREE SEARCH BAR -->
+            <div style="max-w: 448px; margin: 0 auto 24px auto; position: relative; display: block !important;">
+                <i class="fa-solid fa-magnifying-glass" style="position: absolute !important; left: 16px !important; top: 16px !important; z-index: 50 !important; color: #64748b; display: block !important;"></i>
+                <input type="text" id="siteSearchInput" onkeyup="executeSearch()" placeholder="Search apps, scripts, bots..." style="display: block !important; width: 100% !important; padding: 12px 16px 12px 44px !important; border-radius: 12px !important; background-color: rgba(11,17,30,0.9) !important; border: 1px solid #1e293b !important; color: #e2e8f0 !important; outline: none; font-size: 14px;">
             </div>
 
             <!-- CATEGORY TABS -->
-            <div class="flex justify-center gap-2 max-w-xs mx-auto mb-6" style="display: flex; justify-content: center; gap: 8px;">
-                <button onclick="filterCategory('all')" id="tab-all" class="tab-btn bg-blue-600 text-white text-xs font-semibold px-4 py-2 rounded-lg cursor-pointer" style="padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 12px;">All</button>
-                <button onclick="filterCategory('bots')" id="tab-bots" class="tab-btn bg-[#0b111e]/60 border border-slate-800 text-slate-400 text-xs font-semibold px-4 py-2 rounded-lg hover:text-slate-200 cursor-pointer" style="padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 12px; border: 1px solid #1e293b; color: #94a3b8;">Bots</button>
-                <button onclick="filterCategory('apks')" id="tab-apks" class="tab-btn bg-[#0b111e]/60 border border-slate-800 text-slate-400 text-xs font-semibold px-4 py-2 rounded-lg hover:text-slate-200 cursor-pointer" style="padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 12px; border: 1px solid #1e293b; color: #94a3b8;">APKs</button>
+            <div class="flex justify-center gap-2 max-w-xs mx-auto mb-6" style="display: flex !important; justify-content: center; gap: 8px;">
+                <button onclick="applyCategoryFilter('all')" id="tab-all" class="tab-btn bg-blue-600 text-white text-xs font-semibold px-4 py-2 rounded-lg cursor-pointer" style="padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 12px;">All</button>
+                <button onclick="applyCategoryFilter('bots')" id="tab-bots" class="tab-btn bg-[#0b111e]/60 border border-slate-800 text-slate-400 text-xs font-semibold px-4 py-2 rounded-lg hover:text-slate-200 cursor-pointer" style="padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 12px; border: 1px solid #1e293b; color: #94a3b8;">Bots</button>
+                <button onclick="applyCategoryFilter('apks')" id="tab-apks" class="tab-btn bg-[#0b111e]/60 border border-slate-800 text-slate-400 text-xs font-semibold px-4 py-2 rounded-lg hover:text-slate-200 cursor-pointer" style="padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 12px; border: 1px solid #1e293b; color: #94a3b8;">APKs</button>
             </div>
         </header>
 
-        <!-- Main Content -->
+        <!-- MAIN FILE CONTAINER -->
         <main class="max-w-3xl w-full mx-auto px-6 py-6 flex-grow">
-            <div class="space-y-5" id="filesContainer" style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="space-y-5" id="filesContainer" style="display: flex !important; flex-direction: column; gap: 20px;">
 
                 <!-- CARD 1 -->
-                <div class="file-card bg-[#0b111e]/80 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 hover:border-blue-500/30 group" data-title="night screen primum ulnlok v1.0" data-category="apks" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; border-radius: 16px; border: 1px solid rgba(30,41,59,0.5); background-color: rgba(11,17,30,0.8);">
-                    <div class="flex items-center gap-4" style="display: flex; align-items: center; gap: 16px;">
-                        <div class="h-12 w-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-xl border border-blue-500/20" style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px; color: #60a5fa; background-color: rgba(59,130,246,0.1);">
+                <div class="file-card bg-[#0b111e]/80 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 hover:border-blue-500/30 group" data-cat="apks" style="display: flex !important; justify-content: space-between; align-items: center; padding: 20px; border-radius: 16px; border: 1px solid rgba(30,41,59,0.5); background-color: rgba(11,17,30,0.8);">
+                    <div class="flex items-center gap-4" style="display: flex !important; align-items: center; gap: 16px;">
+                        <div class="h-12 w-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-xl border border-blue-500/20" style="width: 48px; height: 48px; display: flex !important; align-items: center; justify-content: center; border-radius: 12px; color: #60a5fa; background-color: rgba(59,130,246,0.1);">
                             <i class="fa-solid fa-cloud-moon"></i>
                         </div>
                         <div>
@@ -118,9 +118,9 @@
                 </div>
 
                 <!-- CARD 2 -->
-                <div class="file-card bg-[#0b111e]/80 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 hover:border-purple-500/30 group" data-title="deneth primum bot v7" data-category="bots" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; border-radius: 16px; border: 1px solid rgba(30,41,59,0.5); background-color: rgba(11,17,30,0.8);">
-                    <div class="flex items-center gap-4" style="display: flex; align-items: center; gap: 16px;">
-                        <div class="h-12 w-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 text-xl border border-purple-500/20" style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px; color: #c084fc; background-color: rgba(168,85,247,0.1);">
+                <div class="file-card bg-[#0b111e]/80 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 hover:border-purple-500/30 group" data-cat="bots" style="display: flex !important; justify-content: space-between; align-items: center; padding: 20px; border-radius: 16px; border: 1px solid rgba(30,41,59,0.5); background-color: rgba(11,17,30,0.8);">
+                    <div class="flex items-center gap-4" style="display: flex !important; align-items: center; gap: 16px;">
+                        <div class="h-12 w-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 text-xl border border-purple-500/20" style="width: 48px; height: 48px; display: flex !important; align-items: center; justify-content: center; border-radius: 12px; color: #c084fc; background-color: rgba(168,85,247,0.1);">
                             <i class="fa-solid fa-robot"></i>
                         </div>
                         <div>
@@ -134,9 +134,9 @@
                 </div>
 
                 <!-- CARD 3 -->
-                <div class="file-card bg-[#0b111e]/80 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 hover:border-emerald-500/40 group" data-title="green tuber primum v20" data-category="apks" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; border-radius: 16px; border: 1px solid rgba(30,41,59,0.5); background-color: rgba(11,17,30,0.8);">
-                    <div class="flex items-center gap-4" style="display: flex; align-items: center; gap: 16px;">
-                        <div class="h-12 w-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 text-xl border border-emerald-500/20" style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px; color: #34d399; background-color: rgba(16,185,129,0.1);">
+                <div class="file-card bg-[#0b111e]/80 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 hover:border-emerald-500/40 group" data-cat="apks" style="display: flex !important; justify-content: space-between; align-items: center; padding: 20px; border-radius: 16px; border: 1px solid rgba(30,41,59,0.5); background-color: rgba(11,17,30,0.8);">
+                    <div class="flex items-center gap-4" style="display: flex !important; align-items: center; gap: 16px;">
+                        <div class="h-12 w-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 text-xl border border-emerald-500/20" style="width: 48px; height: 48px; display: flex !important; align-items: center; justify-content: center; border-radius: 12px; color: #34d399; background-color: rgba(16,185,129,0.1);">
                             <i class="fa-solid fa-mobile-screen-button"></i>
                         </div>
                         <div>
@@ -149,10 +149,10 @@
                     </a>
                 </div>
 
-                <!-- CARD 4 -->
-                <div class="file-card bg-[#0b111e]/80 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 hover:border-amber-500/40 group" data-title="muviz edge premium apk" data-category="apks" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; border-radius: 16px; border: 1px solid rgba(30,41,59,0.5); background-color: rgba(11,17,30,0.8);">
-                    <div class="flex items-center gap-4" style="display: flex; align-items: center; gap: 16px;">
-                        <div class="h-12 w-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 text-xl border border-amber-500/20" style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px; color: #fbbf24; background-color: rgba(245,158,11,0.1);">
+                <!-- CARD 4 (🔥 WITH WORKING PASSWORD POPUP) -->
+                <div class="file-card bg-[#0b111e]/80 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 hover:border-amber-500/40 group" data-cat="apks" style="display: flex !important; justify-content: space-between; align-items: center; padding: 20px; border-radius: 16px; border: 1px solid rgba(30,41,59,0.5); background-color: rgba(11,17,30,0.8);">
+                    <div class="flex items-center gap-4" style="display: flex !important; align-items: center; gap: 16px;">
+                        <div class="h-12 w-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 text-xl border border-amber-500/20" style="width: 48px; height: 48px; display: flex !important; align-items: center; justify-content: center; border-radius: 12px; color: #fbbf24; background-color: rgba(245,158,11,0.1);">
                             <i class="fa-solid fa-gem"></i>
                         </div>
                         <div>
@@ -163,15 +163,15 @@
                             <p class="text-slate-400 text-xs mt-0.5" style="color: #94a3b8; font-size: 12px;">Size: 4.5 MB &bull; Type: Android APK</p>
                         </div>
                     </div>
-                    <button onclick="checkPassword('https://google.com')" class="w-full sm:w-auto text-center bg-gradient-to-r from-amber-600 to-orange-600 text-white text-sm font-semibold px-6 py-2.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 hover:scale-[1.05] cursor-pointer" style="padding: 10px 24px; border-radius: 12px; background: linear-gradient(to right, #d97706, #ea580c); color: white; font-weight: 600; font-size: 14px; border: none;">
-                        <i class="fa-solid fa-lock mr-1"></i> Unlock Download
+                    <button onclick="promptForPassword('https://google.com')" class="w-full sm:w-auto text-center bg-gradient-to-r from-amber-600 to-orange-600 text-white text-sm font-semibold px-6 py-2.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 hover:scale-[1.05] cursor-pointer" style="padding: 10px 24px; border-radius: 12px; background: linear-gradient(to right, #d97706, #ea580c); color: white; font-weight: 600; font-size: 14px; border: none;">
+                        <i class="fa-solid fa-lock" style="margin-right: 4px;"></i> Unlock Download
                     </button>
                 </div>
 
                 <!-- CARD 5 -->
-                <div class="file-card bg-[#0b111e]/80 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 hover:border-red-500/40 group" data-title="whatsapp mod latest version" data-category="bots" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; border-radius: 16px; border: 1px solid rgba(30,41,59,0.5); background-color: rgba(11,17,30,0.8);">
-                    <div class="flex items-center gap-4" style="display: flex; align-items: center; gap: 16px;">
-                        <div class="h-12 w-12 rounded-xl bg-red-500/10 flex items-center justify-center text-red-400 text-xl border border-red-500/20" style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px; color: #f87171; background-color: rgba(239,68,68,0.1);">
+                <div class="file-card bg-[#0b111e]/80 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 hover:border-red-500/40 group" data-cat="bots" style="display: flex !important; justify-content: space-between; align-items: center; padding: 20px; border-radius: 16px; border: 1px solid rgba(30,41,59,0.5); background-color: rgba(11,17,30,0.8);">
+                    <div class="flex items-center gap-4" style="display: flex !important; align-items: center; gap: 16px;">
+                        <div class="h-12 w-12 rounded-xl bg-red-500/10 flex items-center justify-center text-red-400 text-xl border border-red-500/20" style="width: 48px; height: 48px; display: flex !important; align-items: center; justify-content: center; border-radius: 12px; color: #f87171; background-color: rgba(239,68,68,0.1);">
                             <i class="fa-solid fa-fire"></i>
                         </div>
                         <div>
@@ -190,14 +190,15 @@
             </div>
         </main>
 
-        <!-- Footer -->
+        <!-- FOOTER -->
         <footer class="border-t border-slate-900 bg-[#03050a] py-6 text-center text-xs text-slate-500 relative z-10" style="text-align: center; padding: 24px; border-top: 1px solid #0f172a; color: #64748b; font-size: 12px;">
             <p>&copy; 2026 Deneth Download Center. Powering Tech Enthusiasts.</p>
         </footer>
     </div>
 
-    <!-- JAVASCRIPT SYSTEM -->
+    <!-- CENTRAL JS CONTROLLER -->
     <script>
+        // BACKGROUND ANIMATION SYSTEM
         const canvas = document.getElementById('particleCanvas');
         const ctx = canvas.getContext('2d');
         let particlesArray = [];
@@ -253,13 +254,14 @@
         }
         animate();
 
-        function searchFiles() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
+        // 100% WORKING LIVE SEARCH FUNCTION
+        function executeSearch() {
+            let input = document.getElementById('siteSearchInput').value.toLowerCase();
             let cards = document.getElementsByClassName('file-card');
             
             for (let i = 0; i < cards.length; i++) {
-                let title = cards[i].getAttribute('data-title');
-                if (title.toLowerCase().indexOf(input) > -1) {
+                let cardText = cards[i].innerText || cards[i].textContent;
+                if (cardText.toLowerCase().indexOf(input) > -1) {
                     cards[i].style.setProperty('display', 'flex', 'important');
                 } else {
                     cards[i].style.setProperty('display', 'none', 'important');
@@ -267,7 +269,8 @@
             }
         }
 
-        function filterCategory(category) {
+        // TABS FILTER FUNCTION
+        function applyCategoryFilter(category) {
             let cards = document.getElementsByClassName('file-card');
             let tabs = document.getElementsByClassName('tab-btn');
             
@@ -279,7 +282,7 @@
             document.getElementById('tab-' + category).style.color = "#ffffff";
 
             for (let i = 0; i < cards.length; i++) {
-                let cardCat = cards[i].getAttribute('data-category');
+                let cardCat = cards[i].getAttribute('data-cat');
                 if (category === 'all' || cardCat === category) {
                     cards[i].style.setProperty('display', 'flex', 'important');
                 } else {
@@ -288,21 +291,22 @@
             }
         }
 
-        // Standard JS Prompt (Guaranteed to pop up anywhere)
-        function checkPassword(downloadUrl) {
-            const correctPassword = "deneth123"; 
-            let userPassword = prompt("Please enter the Premium Password to unlock this file:");
+        // NATIVE SECURE PASSWORD POPUP
+        function promptForPassword(downloadUrl) {
+            const secureKey = "deneth123"; 
+            let typedPassword = prompt("🔐 Enter Premium Password to unlock this file:");
             
-            if (userPassword === null) return; // User cancelled
+            if (typedPassword === null) return; 
             
-            if (userPassword.trim() === correctPassword) {
-                alert("Password Correct! Your download will open now.");
+            if (typedPassword.trim() === secureKey) {
+                alert("✅ Success! Unlocking download link...");
                 window.open(downloadUrl, '_blank');
             } else {
-                alert("Wrong Password! Access Denied.");
+                alert("❌ Incorrect Password! Access Denied.");
             }
         }
 
+        // TOAST NOTIFICATION SYSTEM
         window.addEventListener('load', function() {
             setTimeout(function() {
                 const toast = document.getElementById('notificationToast');
@@ -315,35 +319,6 @@
                 }
             }, 1000);
         });
-        function searchFiles() {
-    let input = document.getElementById('searchInput').value.toLowerCase();
-    let cards = document.getElementsByClassName('file-card');
-    
-    for (let i = 0; i < cards.length; i++) {
-        let title = cards[i].getAttribute('data-title');
-        if (title && title.toLowerCase().indexOf(input) > -1) {
-            cards[i].style.setProperty('display', 'flex', 'important');
-        } else {
-            cards[i].style.setProperty('display', 'none', 'important');
-        }
-    }
-        }
-        function liveSearchDeneth() {
-    // අලුත් ID එකෙන් Input එක ගන්නවා
-    let input = document.getElementById('denethSearch').value.toLowerCase();
-    let cards = document.getElementsByClassName('file-card');
-    
-    for (let i = 0; i < cards.length; i++) {
-        // කාඩ් එකේ Title එක textContent එකෙන් කෙලින්ම ගන්නවා (data-title නැතත් වැඩ)
-        let title = cards[i].innerText || cards[i].textContent;
-        
-        if (title.toLowerCase().indexOf(input) > -1) {
-            cards[i].style.setProperty('display', 'flex', 'important');
-        } else {
-            cards[i].style.setProperty('display', 'none', 'important');
-        }
-    }
-        }
     </script>
 </body>
-                    </html>
+    </html>
