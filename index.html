@@ -328,6 +328,22 @@
         }
     }
         }
+        function liveSearchDeneth() {
+    // අලුත් ID එකෙන් Input එක ගන්නවා
+    let input = document.getElementById('denethSearch').value.toLowerCase();
+    let cards = document.getElementsByClassName('file-card');
+    
+    for (let i = 0; i < cards.length; i++) {
+        // කාඩ් එකේ Title එක textContent එකෙන් කෙලින්ම ගන්නවා (data-title නැතත් වැඩ)
+        let title = cards[i].innerText || cards[i].textContent;
+        
+        if (title.toLowerCase().indexOf(input) > -1) {
+            cards[i].style.setProperty('display', 'flex', 'important');
+        } else {
+            cards[i].style.setProperty('display', 'none', 'important');
+        }
+    }
+        }
     </script>
 </body>
                     </html>
